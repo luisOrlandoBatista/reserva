@@ -1,0 +1,75 @@
+import {NgModule} from '@angular/core';
+
+import {
+  MatCardModule,
+  MatTooltipModule,
+  MatChipsModule,
+  MatCheckboxModule,
+  MatSidenavModule,
+  MatListModule,
+  MatSelectModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatDialogModule,
+  MatProgressSpinnerModule,
+  MatSliderModule,
+  MatSnackBarModule,
+  MatTableModule,
+  MatDatepickerModule,
+  MatNativeDateModule, MatBadgeModule, MatHint, MatMenuModule, MatPaginatorModule
+} from '@angular/material';
+
+@NgModule({
+  imports: [
+    MatCardModule,
+    MatTooltipModule,
+    MatChipsModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSelectModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatBadgeModule,
+    MatMenuModule,
+    MatPaginatorModule
+  ],
+  exports: [
+    MatCardModule,
+    MatTooltipModule,
+    MatChipsModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSelectModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatBadgeModule,
+    MatMenuModule,
+    MatPaginatorModule
+  ]
+})
+export class MaterialModule {}

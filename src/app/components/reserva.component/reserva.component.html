@@ -1,0 +1,148 @@
+<div fxLayoutAlign="center center">
+  <form #f="ngForm" fxFlex="80" class="example-form">
+    <div fxLayout="row" fxLayoutGap="15px">
+      <mat-form-field fxFlex="15" class="example-full-width">
+        <mat-select [(ngModel)]="typeTripSelected" name="typeTripSelected" required>
+          <mat-option *ngFor="let item of typeTrip" [value]="item">
+            {{item}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="10" class="example-full-width">
+        <input matInput [(ngModel)]="cantPassengers" #CantPassengers="ngModel"
+               type="number" name="cantPassengers" id="cantPassengers"
+               min="1" max="20" required>
+        <mat-error *ngIf="!CantPassengers.valid && CantPassengers.touched">
+          Campo requerido
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="15" class="example-full-width">
+        <mat-select [(ngModel)]="category" name="category" required>
+          <mat-option *ngFor="let item of categories" [value]="item">
+            {{item}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div fxFlex="60" fxLayoutAlign="end center">
+        <button mat-raised-button color="primary" [disabled]="!f.valid" (click)="search()"
+                class="m-r-15 m-t-15">
+          Buscar
+        </button>
+      </div>
+    </div>
+
+    <mat-nav-list fxLayout="column">
+      <div *ngIf="typeTripSelected === 'Ida y vuelta'">
+        <div mat-list-item fxLayout="row" fxLayoutGap="25px" class="m-t-15"
+             *ngFor="let search of searchs; let i = index;">
+          <mat-card fxLayout="row" fxFlex="90" fxLayoutGap="20px">
+            <mat-icon matListIcon>search</mat-icon>
+            <mat-form-field fxFlex="25" class="example-full-width">
+              <mat-select placeholder="Origen" [(ngModel)]="searchs[i].origin"
+                          [ngModelOptions]="{standalone: true}"
+                          required>
+                <mat-option *ngFor="let item of destinations" [value]="item">
+                  {{item}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="20" fxFlex="25" class="example-full-width">
+              <mat-select placeholder="Destino" [(ngModel)]="searchs[i].destination"
+                          [ngModelOptions]="{standalone: true}" required>
+                <mat-option *ngFor="let item of destinations" [value]="item">
+                  {{item}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="25">
+              <input matInput [matDatepicker]="picker" [(ngModel)]="searchs[i].departureDate" [value]="defaultDate" required
+                     [ngModelOptions]="{standalone: true}" placeholder="Fecha de Ida">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="25">
+              <input matInput [matDatepicker]="picker2" [(ngModel)]="searchs[i].returnDate" required
+                     [ngModelOptions]="{standalone: true}" placeholder="Fecha de Vuelta">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </mat-card>
+
+          <div fxLayout="row" fxFlex="10" fxLayoutAlign="center center" fxLayoutGap="20px">
+            <button mat-icon-button type="button">
+              <mat-icon class="font-size-40" (click)="addSearch(i)" color="primary">add</mat-icon>
+            </button>
+            <button mat-icon-button type="button">
+              <mat-icon class="font-size-40" (click)="deleteSearch(i)" color="warn">delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="typeTripSelected !== 'Ida y vuelta'">
+        <div mat-list-item fxLayout="row" fxLayoutGap="25px" class="m-t-15"
+             *ngFor="let search of searchs; let i = index;">
+          <mat-card fxLayout="row" fxFlex="90" fxLayoutGap="20px">
+            <mat-icon matListIcon>search</mat-icon>
+            <mat-form-field fxFlex="33" class="example-full-width">
+              <mat-select placeholder="Origen" [(ngModel)]="searchs[i].origin" [ngModelOptions]="{standalone: true}"
+                          required>
+                <mat-option *ngFor="let item of destinations" [value]="item">
+                  {{item}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="20" fxFlex="33" class="example-full-width">
+              <mat-select placeholder="Destino" [(ngModel)]="searchs[i].destination"
+                          [ngModelOptions]="{standalone: true}" required>
+                <mat-option *ngFor="let item of destinations" [value]="item">
+                  {{item}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="33">
+              <input matInput [matDatepicker]="picker" [(ngModel)]="searchs[i].departureDate"
+                     [ngModelOptions]="{standalone: true}" placeholder="Fecha de Ida">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </mat-card>
+
+          <div fxLayout="row" fxFlex="10" fxLayoutAlign="center center" fxLayoutGap="20px">
+            <button mat-icon-button type="button">
+              <mat-icon class="font-size-40" (click)="addSearch(i)" color="primary">add</mat-icon>
+            </button>
+            <button mat-icon-button type="button">
+              <mat-icon class="font-size-40" (click)="deleteSearch(i)" color="warn">delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-nav-list>
+    <mat-divider class="m-t-20"></mat-divider>
+
+    <div fxLayoutGap="10px" fxLayout="row wrap">
+      <mat-card class="example-card mat-card-width-230 m-t-20" *ngFor="let result of resultSearch; let i = index;">
+        <mat-card-header>
+          <mat-card-title>{{result.origin}}-{{result.destination}}</mat-card-title>
+          <mat-card-subtitle>Vuelo de: {{result.type}}</mat-card-subtitle>
+          <mat-card-subtitle>Fecha: {{result.date}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image class="width-250" [src]="result.imgUrl" alt="{{result.destination}}">
+        <mat-card-actions fxLayoutAlign="end center">
+          <button mat-button>Reservar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </form>
+
+</div>
+

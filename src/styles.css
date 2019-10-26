@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~material-design-icons/iconfont/material-icons.css';
+@import "~leaflet/dist/leaflet.css";
+
+body {
+  margin: 0px;
+}
+
+.m-r-15{
+  margin-right: 15px !important;
+}
+.m-t-15{
+  margin-top: 15px !important;
+}
+.m-t-10{
+  margin-top: 10px !important;
+}
+.p-l-20{
+   padding-left: 20px !important;
+ }
+.p-r-20{
+  padding-right: 20px !important;
+}
+.p-b-20{
+  padding-bottom: 20px !important;
+}
+.p-l-10{
+  padding-left: 10px !important;
+}
+.p-r-10{
+  padding-right: 10px !important;
+}
+.p-t-40{
+  padding-top: 40px !important;
+}
+.p-t-0{
+  padding-top: 0px !important;
+}
+
+.subHeader{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}

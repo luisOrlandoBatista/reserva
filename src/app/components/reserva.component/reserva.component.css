@@ -1,0 +1,29 @@
+.p-0 {
+  padding: 0px !important;
+}
+mat-card{
+  padding: 10px 10px 0px 10px;
+  background-color: #f3f5f7 !important;
+}
+.font-size-40{
+  font-size: 40px;
+}
+.m-t-15{
+  margin-top: 15px !important;
+}
+.m-t-20{
+  margin-top: 20px !important;
+}
+img .width-250{
+  width: 250px !important;
+}
+.mat-card-width-230{
+  max-width: 230px !important;
+}
+.mat-card-image{
+  width: 230px !important;
+  margin: 0 !important;
+}
+mat-card-actions .mat-button{
+  margin-bottom: 10px !important;
+}

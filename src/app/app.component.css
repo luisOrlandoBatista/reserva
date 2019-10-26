@@ -1,0 +1,9 @@
+.p-l-15 {
+  padding-left: 15px;
+}
+.active-icons-header{
+  border-bottom: 1px solid;
+}
+mat-toolbar{
+  background-color: #f3f5f7 !important;
+}
